@@ -17,9 +17,30 @@ ax.plot_trisurf(x,y,z,cmap="jet")
 ax.set_title("3D Surface Plot")
 
 plt.show()
+#########################################
 
 #2 contour plots
+#2
+#Visualize the n-dimensional data using contour plots.
 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+data = pd.read_csv("ToyotaCorolla.csv")
+
+#contour plot
+x = data['KM']
+y = data['Weight']
+z = data['Price']
+
+plt.tricontourf(x, y, z, levels=20, cmap='jet')
+plt.colorbar(label='Price')
+plt.xlabel('KM')
+plt.ylabel('Weight')
+plt.title('Contour Plot')
+plt.show()
+#################################
 
 #3
 #Visualize the n-dimensional data using heat-map.
@@ -33,7 +54,7 @@ data = pd.read_csv("ToyotaCorolla.csv")
 #heat map
 sns.heatmap(data[["Price","KM","Doors", "Weight"]].corr(),cmap='jet',annot=True)
 plt.show()
-
+###################################
 #4
 # Visualize the n-dimensional data using Box-plot.
 
